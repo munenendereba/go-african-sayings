@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"log"
+	"math/rand"
 	"os"
 )
 
@@ -25,7 +26,7 @@ type Sayings struct {
 	Sayings []Saying `json:"sayings"`
 }
 
-func AfricanSaying(langIn string, allSayings bool) string {
+func AfricanSaying(langIn string, allSayings bool) {
 	homeFolder := "./resources/"
 	fileSuffix := "-sayings.json"
 
@@ -37,7 +38,14 @@ func AfricanSaying(langIn string, allSayings bool) string {
 			log.Fatalln(err)
 		}
 
-		fmt.Println(sayings)
+		if allSayings {
+			fmt.Println(sayings)
+		} else {
+			sayingPos := rand.Intn(len(sayings.Sayings))
+
+			fmt.Println(sayings.Sayings[sayingPos].Saying)
+		}
+
 	} else {
 		jsonFile, err := os.Open(homeFolder + "languages.json")
 
@@ -69,10 +77,7 @@ func AfricanSaying(langIn string, allSayings bool) string {
 
 			fmt.Println(sayings)
 		}
-
 	}
-
-	return ""
 }
 
 func GetSayings(filename string) (Sayings, error) {
@@ -82,6 +87,8 @@ func GetSayings(filename string) (Sayings, error) {
 		log.Fatalln(err.Error())
 		return Sayings{}, err
 	}
+
+	fmt.Println("File", filename, "opened successfully.")
 
 	defer file.Close()
 
