@@ -1,8 +1,16 @@
 {
   "sayings": [
     {
-      "saying": "ita",
-      "translation": "twende"
+      "saying": "Agikuyu moi kuhitha ndia, matiui kuhitha uhoro",
+      "translation": "The Kikuyu know how to conceal their quiver, but do not know how to conceal their secrets.ende"
+    },
+    {
+      "saying": "Ageni eri matiri utugire",
+      "translation": "Two guests (at the same time) have no welcome."
+    },
+    {
+      "saying": "Ageni eri na karirui kao",
+      "translation": "Two guests love a different song."
     }
   ]
 }
